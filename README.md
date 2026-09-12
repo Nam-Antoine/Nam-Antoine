@@ -96,9 +96,20 @@
 
 ## Stats
 
+<!--
+  Cards come from github-profile-summary-cards (the public github-readme-stats
+  instance was paused on 2026-09-12). Each <picture> swaps theme with the
+  viewer's light/dark setting.
+-->
 <p align="center">
-  <img alt="GitHub stats" height="165" src="https://github-readme-stats.vercel.app/api?username=Nam-Antoine&show_icons=true&hide_border=true&hide_title=true&count_private=true&theme=transparent" />
-  <img alt="Top languages" height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Nam-Antoine&layout=compact&hide_border=true&hide_title=true&hide=html,css,scss,jupyter%20notebook&theme=transparent" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Nam-Antoine&theme=github_dark" />
+    <img alt="GitHub stats" height="170" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=Nam-Antoine&theme=github" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Nam-Antoine&theme=github_dark" />
+    <img alt="Most-committed languages" height="170" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Nam-Antoine&theme=github" />
+  </picture>
 </p>
 
 ## Contact
