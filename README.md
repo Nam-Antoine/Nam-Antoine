@@ -1,22 +1,22 @@
 <!--
-  Liquid-glass edition. Layout still follows the four-section structure from
+  Claymorphism edition (glass variants are also generated — swap `-clay-` for `-glass-` in the URLs to switch back). Layout still follows the four-section structure from
   https://dev.to/yuridevat/how-to-create-a-stunning-github-profile-2mh5
   (Header → My Projects → About Me → Footer), but every card is an animated
   SVG rendered by scripts/build-cards.mjs from live GitHub data and published
   to the `output` branch daily by .github/workflows/cards.yml.
 
   Each <picture> swaps to the dark or light card with the viewer's theme.
-  GitHub strips CSS/JS from READMEs, so the "glass" is done inside the SVGs:
-  blurred colour blobs drift behind translucent panels, a specular sheen
-  sweeps across, text and chips rise in on load.
+  GitHub strips CSS/JS from READMEs, so the look is done inside the SVGs:
+  one filter gives every panel and chip its inset light/shadow and soft
+  outer shadow; clay spheres float, chips squish, text rises in on load.
 -->
 
 <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/hero-dark.svg" />
-    <img alt="Nam-Antoine — I build the tools I wish I had, then ship web apps end to end." width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/hero-light.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/hero-clay-dark.svg" />
+    <img alt="Nam-Antoine — I build the tools I wish I had, then ship web apps end to end." width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/hero-clay-light.svg" />
   </picture>
 </p>
 
@@ -48,16 +48,16 @@
     <td width="50%">
       <a href="https://github.com/Nam-Antoine/Nmux">
         <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-nmux-dark.svg" />
-          <img alt="Nmux — a persistent desktop home for Claude Code" width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-nmux-light.svg" />
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-nmux-clay-dark.svg" />
+          <img alt="Nmux — a persistent desktop home for Claude Code" width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-nmux-clay-light.svg" />
         </picture>
       </a>
     </td>
     <td width="50%">
       <a href="https://github.com/Nam-Antoine/TKB">
         <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-tkb-dark.svg" />
-          <img alt="USTH Timetable — a tray app that watches the USTH portal and notifies you of timetable changes" width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-tkb-light.svg" />
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-tkb-clay-dark.svg" />
+          <img alt="USTH Timetable — a tray app that watches the USTH portal and notifies you of timetable changes" width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-tkb-clay-light.svg" />
         </picture>
       </a>
     </td>
@@ -65,15 +65,15 @@
   <tr>
     <td width="50%">
       <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-fleetview-dark.svg" />
-        <img alt="FleetView — multi-cluster Kubernetes cost, drift and health dashboard (final-year project, private until submission)" width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-fleetview-light.svg" />
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-fleetview-clay-dark.svg" />
+        <img alt="FleetView — multi-cluster Kubernetes cost, drift and health dashboard (final-year project, private until submission)" width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-fleetview-clay-light.svg" />
       </picture>
     </td>
     <td width="50%">
       <a href="https://github.com/Nam-Antoine/ML1-project">
         <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-ml1-dark.svg" />
-          <img alt="ML1-project — can an AI assistant improve model building, evaluation and error analysis?" width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-ml1-light.svg" />
+          <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-ml1-clay-dark.svg" />
+          <img alt="ML1-project — can an AI assistant improve model building, evaluation and error analysis?" width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/project-ml1-clay-light.svg" />
         </picture>
       </a>
     </td>
@@ -115,8 +115,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/stack-dark.svg" />
-    <img alt="Stack: TypeScript, Next.js, React, NestJS, Prisma, PostgreSQL, Tailwind, Playwright · Electron, Tauri, Rust · Python, Jupyter, scikit-learn, Docker, Kubernetes, GitHub Actions · Claude Code, pnpm, Figma, Linear" width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/stack-light.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/stack-clay-dark.svg" />
+    <img alt="Stack: TypeScript, Next.js, React, NestJS, Prisma, PostgreSQL, Tailwind, Playwright · Electron, Tauri, Rust · Python, Jupyter, scikit-learn, Docker, Kubernetes, GitHub Actions · Claude Code, pnpm, Figma, Linear" width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/stack-clay-light.svg" />
   </picture>
 </p>
 
@@ -128,8 +128,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/activity-dark.svg" />
-    <img alt="Contributions, streaks, last 12 weeks and language share" width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/activity-light.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/activity-clay-dark.svg" />
+    <img alt="Contributions, streaks, last 12 weeks and language share" width="100%" src="https://raw.githubusercontent.com/Nam-Antoine/Nam-Antoine/output/activity-clay-light.svg" />
   </picture>
 </p>
 
