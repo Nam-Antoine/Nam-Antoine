@@ -85,23 +85,42 @@ function languageShare(repos) {
 }
 
 // ───────────────────────────── themes ─────────────────────────────
+//
+// Two visual styles share the same card layouts:
+//   glass — blurred colour blobs behind translucent panels + a sweeping sheen
+//   clay  — matte, puffy panels with inset light/shadow, soft coloured outer
+//           shadows and pastel chips; decorative clay balls float around
 
 const THEMES = {
-  dark: {
-    bg: "#070c18", bg2: "#0d1630",
+  "glass-dark": {
+    kind: "glass", bg: "#070c18", bg2: "#0d1630",
     blobs: ["#1155BC", "#22d3ee", "#7c3aed", "#2563eb"], blobOpacity: 0.85,
     glass: "rgba(255,255,255,0.065)", glassEdgeTop: "rgba(255,255,255,0.55)", glassEdgeBottom: "rgba(255,255,255,0.08)",
     sheen: "rgba(255,255,255,0.22)", shadow: 0.45,
     text: "#f3f6fb", muted: "rgba(243,246,251,0.66)", faint: "rgba(243,246,251,0.4)", accent: "#8ccbff", chip: "rgba(255,255,255,0.09)",
     trackBg: "rgba(255,255,255,0.1)",
   },
-  light: {
-    bg: "#eaf1fc", bg2: "#f7f9ff",
+  "glass-light": {
+    kind: "glass", bg: "#eaf1fc", bg2: "#f7f9ff",
     blobs: ["#1155BC", "#38bdf8", "#a78bfa", "#60a5fa"], blobOpacity: 0.45,
     glass: "rgba(255,255,255,0.55)", glassEdgeTop: "rgba(255,255,255,1)", glassEdgeBottom: "rgba(17,85,188,0.14)",
     sheen: "rgba(255,255,255,0.7)", shadow: 0.18,
     text: "#0b1220", muted: "rgba(11,18,32,0.62)", faint: "rgba(11,18,32,0.42)", accent: "#1155BC", chip: "rgba(255,255,255,0.7)",
     trackBg: "rgba(17,85,188,0.1)",
+  },
+  "clay-light": {
+    kind: "clay", bg: "#e9edff", bg2: "#fbeefc",
+    panel: "#f5f7ff", balls: ["#a9b8ff", "#ffb8d2", "#a6ecd2", "#ffd59e", "#cdb7ff"],
+    chips: ["#c9d3ff", "#ffd3e3", "#c5f1e2", "#ffe3bd", "#e2d3ff"], chipText: "#1e2358",
+    outerShadow: "#6d7cff", outerOpacity: 0.28, innerDark: "#2a3577", innerDarkOpacity: 0.22, innerLight: "#ffffff", innerLightOpacity: 0.95,
+    text: "#1e2358", muted: "#5b628f", faint: "#8a90bb", accent: "#5b6cff", trackBg: "#dfe4ff",
+  },
+  "clay-dark": {
+    kind: "clay", bg: "#161a36", bg2: "#241b44",
+    panel: "#2a3060", balls: ["#4657c7", "#b04a7c", "#2f8a6e", "#c47d3a", "#6b46b8"],
+    chips: ["#3d4aa3", "#8a3d6b", "#2f7560", "#8f6a32", "#5c3f9c"], chipText: "#f4f5ff",
+    outerShadow: "#05061a", outerOpacity: 0.55, innerDark: "#0a0d2b", innerDarkOpacity: 0.55, innerLight: "#ffffff", innerLightOpacity: 0.22,
+    text: "#f4f5ff", muted: "#b9bfe8", faint: "#8288bf", accent: "#8f9cff", trackBg: "#1d2250",
   },
 };
 
@@ -120,9 +139,57 @@ function wrap(text, maxChars, maxLines) {
   return lines;
 }
 
-// Shared <defs> + <style>. `id` keeps ids unique per card in case several
-// SVGs are inlined on one page.
+// The clay look is one SVG filter: an inset dark shadow bottom-right, an
+// inset light highlight top-left, and a soft coloured drop shadow outside.
+// `s` scales it for small shapes (chips) vs. panels.
+function clayFilter(id, t, s = 1) {
+  const blur = 7 * s, off = 6 * s;
+  return `<filter id="${id}" x="-40%" y="-40%" width="180%" height="190%" color-interpolation-filters="sRGB">
+    <feComponentTransfer in="SourceAlpha" result="inv"><feFuncA type="table" tableValues="1 0"/></feComponentTransfer>
+    <feGaussianBlur in="inv" stdDeviation="${blur}" result="b1"/><feOffset in="b1" dx="${-off}" dy="${-off}" result="o1"/>
+    <feFlood flood-color="${t.innerDark}" flood-opacity="${t.innerDarkOpacity}" result="c1"/><feComposite in="c1" in2="o1" operator="in" result="s1"/><feComposite in="s1" in2="SourceAlpha" operator="in" result="innerDark"/>
+    <feGaussianBlur in="inv" stdDeviation="${blur}" result="b2"/><feOffset in="b2" dx="${off}" dy="${off}" result="o2"/>
+    <feFlood flood-color="${t.innerLight}" flood-opacity="${t.innerLightOpacity}" result="c2"/><feComposite in="c2" in2="o2" operator="in" result="s2"/><feComposite in="s2" in2="SourceAlpha" operator="in" result="innerLight"/>
+    <feDropShadow in="SourceGraphic" dx="${10 * s}" dy="${12 * s}" stdDeviation="${11 * s}" flood-color="${t.outerShadow}" flood-opacity="${t.outerOpacity}" result="outer"/>
+    <feMerge><feMergeNode in="outer"/><feMergeNode in="innerLight"/><feMergeNode in="innerDark"/></feMerge>
+  </filter>`;
+}
+
+const sharedStyle = (id) => `
+  @keyframes ${id}-rise { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+  .rise { animation: ${id}-rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .d1{animation-delay:.1s} .d2{animation-delay:.25s} .d3{animation-delay:.4s} .d4{animation-delay:.55s} .d5{animation-delay:.7s} .d6{animation-delay:.85s}
+  text { font-family: ${FONT}; }`;
+
+// Shared <defs> + <style> + background. `id` keeps ids unique per card in
+// case several SVGs are inlined on one page. `blobs` are the positions of
+// the background shapes (blurred blobs for glass, floating balls for clay).
 function frame({ id, w, h, t, blobs }) {
+  if (t.kind === "clay") {
+    // clay keeps its spheres in front of the panel (see accents()); nothing behind
+    const balls = "";
+    return `
+<defs>
+  <linearGradient id="${id}-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${t.bg}"/><stop offset="1" stop-color="${t.bg2}"/></linearGradient>
+  ${clayFilter(`${id}-clay`, t, 1)}
+  ${clayFilter(`${id}-clayS`, t, 0.45)}
+  <clipPath id="${id}-clip"><rect width="${w}" height="${h}" rx="28"/></clipPath>
+</defs>
+<style>
+  @keyframes ${id}-float0 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(18px,-22px) rotate(8deg)} }
+  @keyframes ${id}-float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-24px,16px)} }
+  @keyframes ${id}-float2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(12px,20px) scale(1.08)} }
+  @keyframes ${id}-float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-14px,-18px)} }
+  .k0{animation:${id}-float0 9s ease-in-out infinite} .k1{animation:${id}-float1 11s ease-in-out infinite}
+  .k2{animation:${id}-float2 13s ease-in-out infinite} .k3{animation:${id}-float3 10s ease-in-out infinite}
+  @keyframes ${id}-squish { 0%,100%{transform:scale(1,1)} 50%{transform:scale(1.03,0.97)} }
+  .squish { transform-box: fill-box; transform-origin: center; animation:${id}-squish 4s ease-in-out infinite; }
+  ${sharedStyle(id)}
+</style>
+<rect width="${w}" height="${h}" rx="28" fill="url(#${id}-bg)"/>
+<g clip-path="url(#${id}-clip)">${balls}</g>`;
+  }
+
   const blobEls = blobs.map((b, i) => {
     const color = t.blobs[i % t.blobs.length];
     return `<circle class="blob b${i}" cx="${b.x}" cy="${b.y}" r="${b.r}" fill="${color}" />`;
@@ -147,17 +214,18 @@ function frame({ id, w, h, t, blobs }) {
   .b2{animation:${id}-drift2 19s ease-in-out infinite} .b3{animation:${id}-drift3 15s ease-in-out infinite}
   @keyframes ${id}-sweep { 0%{transform:translateX(-${w}px) skewX(-18deg)} 35%,100%{transform:translateX(${w * 1.2}px) skewX(-18deg)} }
   .sheen { animation: ${id}-sweep 7s cubic-bezier(.4,0,.2,1) infinite; }
-  @keyframes ${id}-rise { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-  .rise { animation: ${id}-rise .8s cubic-bezier(.2,.7,.2,1) both; }
-  .d1{animation-delay:.1s} .d2{animation-delay:.25s} .d3{animation-delay:.4s} .d4{animation-delay:.55s} .d5{animation-delay:.7s} .d6{animation-delay:.85s}
-  text { font-family: ${FONT}; }
+  ${sharedStyle(id)}
 </style>
 <rect width="${w}" height="${h}" rx="24" fill="url(#${id}-bg)"/>
 <g clip-path="url(#${id}-clip)">${blobEls}</g>`;
 }
 
-// A glass panel with gradient edge, top highlight and the sweeping sheen.
+// A panel: glass (gradient edge, top highlight, sweeping sheen) or clay
+// (matte fill with the inset/outer shadow filter).
 function panel({ id, x, y, w, h, t, rx = 20, sheen = true }) {
+  if (t.kind === "clay") {
+    return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx + 8}" fill="${t.panel}" filter="url(#${id}-clay)"/>`;
+  }
   const cid = `${id}-p${x}-${y}`;
   return `
 <g filter="url(#${id}-shadow)">
@@ -168,12 +236,29 @@ ${sheen ? `<clipPath id="${cid}"><rect x="${x}" y="${y}" width="${w}" height="${
 <g clip-path="url(#${cid})"><rect class="sheen" x="${x}" y="${y - 20}" width="${Math.max(90, w * 0.18)}" height="${h + 40}" fill="url(#${id}-sheen)"/></g>` : ""}`;
 }
 
-function chip({ x, y, label, t, dot, size = 12, rise = "" }) {
+// Small clay spheres sitting on a panel's corners (clay only; '' for glass).
+function accents({ id, t, pts }) {
+  if (t.kind !== "clay") return "";
+  return pts.map((a, i) => `<circle class="ball k${(i + 1) % 4}" cx="${a.x}" cy="${a.y}" r="${a.r}" fill="${t.balls[(i + 2) % t.balls.length]}" filter="url(#${id}-clayS)"/>`).join("");
+}
+
+let chipSeq = 0;
+function chip({ id, x, y, label, t, dot, size = 12, rise = "" }) {
   const w = Math.round(textW(label, size) + 22 + (dot ? 14 : 0));
+  const hgt = size + 14;
+  if (t.kind === "clay") {
+    const fill = t.chips[chipSeq++ % t.chips.length];
+    return {
+      w,
+      svg: `<g class="rise ${rise}"><rect class="squish" style="animation-delay:${(chipSeq % 7) * 0.5}s" x="${x}" y="${y}" width="${w}" height="${hgt}" rx="${hgt / 2}" fill="${fill}" filter="url(#${id}-clayS)"/>
+      ${dot ? `<circle cx="${x + 13}" cy="${y + hgt / 2}" r="4" fill="${dot}"/>` : ""}
+      <text x="${x + 11 + (dot ? 14 : 0)}" y="${y + size + 3}" font-size="${size}" font-weight="600" fill="${t.chipText}">${esc(label)}</text></g>`,
+    };
+  }
   return {
     w,
-    svg: `<g class="rise ${rise}"><rect x="${x}" y="${y}" width="${w}" height="${size + 14}" rx="${(size + 14) / 2}" fill="${t.chip}" stroke="${t.glassEdgeBottom}"/>
-      ${dot ? `<circle cx="${x + 13}" cy="${y + (size + 14) / 2}" r="4" fill="${dot}"/>` : ""}
+    svg: `<g class="rise ${rise}"><rect x="${x}" y="${y}" width="${w}" height="${hgt}" rx="${hgt / 2}" fill="${t.chip}" stroke="${t.glassEdgeBottom}"/>
+      ${dot ? `<circle cx="${x + 13}" cy="${y + hgt / 2}" r="4" fill="${dot}"/>` : ""}
       <text x="${x + 11 + (dot ? 14 : 0)}" y="${y + size + 3}" font-size="${size}" fill="${t.text}">${esc(label)}</text></g>`,
   };
 }
@@ -205,22 +290,25 @@ function hero({ theme, t, avatar, user }) {
     { label: `${user.repositories.totalCount} public repos`, dot: "#fbbf24" },
     { label: `${user.followers.totalCount} followers`, dot: "#f472b6" },
   ];
-  let px = 52; const pillSvg = pills.map((p, i) => { const c = chip({ x: px, y: 212, label: p.label, t, dot: p.dot, size: 13, rise: `d${i + 3}` }); px += c.w + 10; return c.svg; }).join("");
+  let px = 52; const pillSvg = pills.map((p, i) => { const c = chip({ id, x: px, y: 212, label: p.label, t, dot: p.dot, size: 13, rise: `d${i + 3}` }); px += c.w + 10; return c.svg; }).join("");
 
   const body = `
 ${frame({ id, w, h, t, blobs: [{ x: 120, y: 60, r: 170 }, { x: 560, y: 260, r: 200 }, { x: 800, y: 40, r: 150 }, { x: 350, y: 180, r: 120 }] })}
 ${tlStyle}
 ${panel({ id, x: 24, y: 24, w: 852, h: 252, t, rx: 26 })}
+${accents({ id, t, pts: [{ x: 866, y: 40, r: 22 }, { x: 44, y: 268, r: 16 }, { x: 640, y: 262, r: 11 }] })}
 <text class="rise" x="52" y="84" font-size="15" letter-spacing="3" fill="${t.faint}">HI THERE, I'M</text>
 <text class="rise d1" x="52" y="126" font-size="42" font-weight="700" fill="${t.text}">Nam-Antoine</text>
 ${taglines}
 ${pillSvg}
 <defs><clipPath id="${id}-av"><circle cx="760" cy="150" r="72"/></clipPath>
 <linearGradient id="${id}-orbit" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${t.accent}"/><stop offset="1" stop-color="${t.accent}" stop-opacity="0"/></linearGradient></defs>
-<g class="ring"><circle cx="760" cy="150" r="88" fill="${t.glass}" stroke="url(#${id}-edge)" stroke-width="1.2"/></g>
-<g class="orbit"><circle cx="760" cy="150" r="88" fill="none" stroke="url(#${id}-orbit)" stroke-width="2" stroke-dasharray="120 440" stroke-linecap="round"/></g>
+${t.kind === "clay"
+  ? `<g class="ring"><circle cx="760" cy="150" r="88" fill="${t.panel}" filter="url(#${id}-clay)"/></g>`
+  : `<g class="ring"><circle cx="760" cy="150" r="88" fill="${t.glass}" stroke="url(#${id}-edge)" stroke-width="1.2"/></g>
+<g class="orbit"><circle cx="760" cy="150" r="88" fill="none" stroke="url(#${id}-orbit)" stroke-width="2" stroke-dasharray="120 440" stroke-linecap="round"/></g>`}
 <image class="rise d2" href="${avatar}" x="688" y="78" width="144" height="144" clip-path="url(#${id}-av)"/>
-<circle cx="760" cy="150" r="72" fill="none" stroke="${t.glassEdgeTop}" stroke-opacity="0.6"/>`;
+<circle cx="760" cy="150" r="72" fill="none" stroke="${t.kind === "clay" ? t.innerLight : t.glassEdgeTop}" stroke-opacity="0.6"/>`;
   return svg(w, h, body);
 }
 
@@ -228,13 +316,14 @@ function projectCard({ theme, t, p }) {
   const w = 440, h = 210, id = `proj-${theme}-${p.key}`;
   const lines = wrap(p.description, 62, 3);
   const descSvg = lines.map((l, i) => `<text class="rise d2" x="34" y="${82 + i * 18}" font-size="13" fill="${t.muted}">${esc(l)}</text>`).join("");
-  let cx = 34; const chips = p.tech.map((c, i) => { const ch = chip({ x: cx, y: 140, label: c, t, size: 11, rise: `d${Math.min(6, i + 3)}` }); cx += ch.w + 8; return ch.svg; }).join("");
+  let cx = 34; const chips = p.tech.map((c, i) => { const ch = chip({ id, x: cx, y: 140, label: c, t, size: 11, rise: `d${Math.min(6, i + 3)}` }); cx += ch.w + 8; return ch.svg; }).join("");
   const meta = [];
   if (p.lang) meta.push(`<circle cx="${34 + 5}" cy="181" r="5" fill="${p.langColor}"/><text x="46" y="185" font-size="12" fill="${t.muted}">${esc(p.lang)}</text>`);
   const right = [p.stars != null ? `★ ${p.stars}` : null, p.release ? p.release : null, p.updated].filter(Boolean).join("   ·   ");
   const body = `
 ${frame({ id, w, h, t, blobs: [{ x: p.seed * 90 % 440, y: 40, r: 130 }, { x: 380 - (p.seed * 60 % 300), y: 200, r: 150 }, { x: 220, y: 110, r: 90 }] })}
 ${panel({ id, x: 14, y: 14, w: 412, h: 182, t, rx: 22 })}
+${accents({ id, t, pts: [{ x: 420, y: 22, r: 13 }, { x: 22, y: 190, r: 9 }] })}
 <text class="rise" x="34" y="52" font-size="20" font-weight="700" fill="${t.text}">${esc(p.title)}</text>
 ${p.badge ? `<text class="rise d1" x="${34 + textW(p.title, 20) + 12}" y="51" font-size="11" fill="${t.faint}">${esc(p.badge)}</text>` : ""}
 ${descSvg}
@@ -256,12 +345,13 @@ function stackCard({ theme, t }) {
   for (const [label, items] of groups) {
     out += `<text class="rise" x="40" y="${y + 16}" font-size="11" letter-spacing="2" fill="${t.faint}">${esc(label.toUpperCase())}</text>`;
     let x = 150;
-    for (const it of items) { const c = chip({ x, y, label: it, t, size: 11, rise: `d${(n++ % 6) + 1}` }); x += c.w + 8; out += c.svg; }
+    for (const it of items) { const c = chip({ id, x, y, label: it, t, size: 11, rise: `d${(n++ % 6) + 1}` }); x += c.w + 8; out += c.svg; }
     y += 30;
   }
   const body = `
 ${frame({ id, w, h, t, blobs: [{ x: 100, y: 150, r: 150 }, { x: 500, y: 0, r: 160 }, { x: 850, y: 140, r: 140 }, { x: 300, y: 80, r: 100 }] })}
 ${panel({ id, x: 16, y: 16, w: 868, h: 164, t, rx: 22 })}
+${accents({ id, t, pts: [{ x: 872, y: 30, r: 18 }, { x: 838, y: 160, r: 12 }, { x: 28, y: 176, r: 10 }] })}
 ${out}`;
   return svg(w, h, body);
 }
@@ -283,7 +373,7 @@ function activityCard({ theme, t, user, st, langs }) {
   const max = Math.max(1, ...days.map((d) => d.contributionCount));
   const cells = days.map((d, i) => {
     const wk = Math.floor(i / 7), dow = i % 7, a = d.contributionCount === 0 ? 0.12 : 0.3 + 0.7 * (d.contributionCount / max);
-    return `<rect class="rise d${(wk % 6) + 1}" x="${330 + wk * 14}" y="${44 + dow * 14}" width="11" height="11" rx="3" fill="${t.accent}" fill-opacity="${a.toFixed(2)}"/>`;
+    return `<rect class="rise d${(wk % 6) + 1}" x="${330 + wk * 14}" y="${44 + dow * 14}" width="11" height="11" rx="${t.kind === "clay" ? 4 : 3}" fill="${t.accent}" fill-opacity="${a.toFixed(2)}"/>`;
   }).join("");
 
   const barStyle = `<style>@keyframes ${id}-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}} .bar{transform-origin:520px 0;animation:${id}-grow 1.2s cubic-bezier(.2,.7,.2,1) both}</style>`;
@@ -297,6 +387,7 @@ function activityCard({ theme, t, user, st, langs }) {
 ${frame({ id, w, h, t, blobs: [{ x: 80, y: 40, r: 150 }, { x: 450, y: 220, r: 180 }, { x: 860, y: 30, r: 140 }, { x: 650, y: 100, r: 90 }] })}
 ${barStyle}
 ${panel({ id, x: 16, y: 16, w: 868, h: 168, t, rx: 22 })}
+${accents({ id, t, pts: [{ x: 878, y: 178, r: 14 }, { x: 30, y: 24, r: 10 }] })}
 ${statSvg}
 <text x="330" y="34" font-size="11" letter-spacing="2" fill="${t.faint}">LAST 12 WEEKS</text>
 ${cells}
@@ -325,7 +416,7 @@ const PROJECTS = [
 await mkdir(OUT, { recursive: true });
 const files = [];
 for (const theme of Object.keys(THEMES)) {
-  const t = THEMES[theme];
+  const t = THEMES[theme]; chipSeq = 0;
   files.push([`hero-${theme}.svg`, hero({ theme, t, avatar, user })]);
   files.push([`stack-${theme}.svg`, stackCard({ theme, t })]);
   files.push([`activity-${theme}.svg`, activityCard({ theme, t, user, st, langs })]);
