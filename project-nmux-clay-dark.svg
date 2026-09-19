@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="440" height="210" viewBox="0 0 440 210" role="img">
+
+<defs>
+  <linearGradient id="proj-clay-dark-nmux-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#161a36"/><stop offset="1" stop-color="#241b44"/></linearGradient>
+  <filter id="proj-clay-dark-nmux-clay" x="-40%" y="-40%" width="180%" height="190%" color-interpolation-filters="sRGB">
+    <feComponentTransfer in="SourceAlpha" result="inv"><feFuncA type="table" tableValues="1 0"/></feComponentTransfer>
+    <feGaussianBlur in="inv" stdDeviation="7" result="b1"/><feOffset in="b1" dx="-6" dy="-6" result="o1"/>
+    <feFlood flood-color="#0a0d2b" flood-opacity="0.55" result="c1"/><feComposite in="c1" in2="o1" operator="in" result="s1"/><feComposite in="s1" in2="SourceAlpha" operator="in" result="innerDark"/>
+    <feGaussianBlur in="inv" stdDeviation="7" result="b2"/><feOffset in="b2" dx="6" dy="6" result="o2"/>
+    <feFlood flood-color="#ffffff" flood-opacity="0.22" result="c2"/><feComposite in="c2" in2="o2" operator="in" result="s2"/><feComposite in="s2" in2="SourceAlpha" operator="in" result="innerLight"/>
+    <feDropShadow in="SourceGraphic" dx="10" dy="12" stdDeviation="11" flood-color="#05061a" flood-opacity="0.55" result="outer"/>
+    <feMerge><feMergeNode in="outer"/><feMergeNode in="innerLight"/><feMergeNode in="innerDark"/></feMerge>
+  </filter>
+  <filter id="proj-clay-dark-nmux-clayS" x="-40%" y="-40%" width="180%" height="190%" color-interpolation-filters="sRGB">
+    <feComponentTransfer in="SourceAlpha" result="inv"><feFuncA type="table" tableValues="1 0"/></feComponentTransfer>
+    <feGaussianBlur in="inv" stdDeviation="3.15" result="b1"/><feOffset in="b1" dx="-2.7" dy="-2.7" result="o1"/>
+    <feFlood flood-color="#0a0d2b" flood-opacity="0.55" result="c1"/><feComposite in="c1" in2="o1" operator="in" result="s1"/><feComposite in="s1" in2="SourceAlpha" operator="in" result="innerDark"/>
+    <feGaussianBlur in="inv" stdDeviation="3.15" result="b2"/><feOffset in="b2" dx="2.7" dy="2.7" result="o2"/>
+    <feFlood flood-color="#ffffff" flood-opacity="0.22" result="c2"/><feComposite in="c2" in2="o2" operator="in" result="s2"/><feComposite in="s2" in2="SourceAlpha" operator="in" result="innerLight"/>
+    <feDropShadow in="SourceGraphic" dx="4.5" dy="5.4" stdDeviation="4.95" flood-color="#05061a" flood-opacity="0.55" result="outer"/>
+    <feMerge><feMergeNode in="outer"/><feMergeNode in="innerLight"/><feMergeNode in="innerDark"/></feMerge>
+  </filter>
+  <clipPath id="proj-clay-dark-nmux-clip"><rect width="440" height="210" rx="28"/></clipPath>
+</defs>
+<style>
+  @keyframes proj-clay-dark-nmux-float0 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(18px,-22px) rotate(8deg)} }
+  @keyframes proj-clay-dark-nmux-float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-24px,16px)} }
+  @keyframes proj-clay-dark-nmux-float2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(12px,20px) scale(1.08)} }
+  @keyframes proj-clay-dark-nmux-float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-14px,-18px)} }
+  .k0{animation:proj-clay-dark-nmux-float0 9s ease-in-out infinite} .k1{animation:proj-clay-dark-nmux-float1 11s ease-in-out infinite}
+  .k2{animation:proj-clay-dark-nmux-float2 13s ease-in-out infinite} .k3{animation:proj-clay-dark-nmux-float3 10s ease-in-out infinite}
+  @keyframes proj-clay-dark-nmux-squish { 0%,100%{transform:scale(1,1)} 50%{transform:scale(1.03,0.97)} }
+  .squish { transform-box: fill-box; transform-origin: center; animation:proj-clay-dark-nmux-squish 4s ease-in-out infinite; }
+  
+  @keyframes proj-clay-dark-nmux-rise { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+  .rise { animation: proj-clay-dark-nmux-rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .d1{animation-delay:.1s} .d2{animation-delay:.25s} .d3{animation-delay:.4s} .d4{animation-delay:.55s} .d5{animation-delay:.7s} .d6{animation-delay:.85s}
+  text { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; }
+</style>
+<rect width="440" height="210" rx="28" fill="url(#proj-clay-dark-nmux-bg)"/>
+<g clip-path="url(#proj-clay-dark-nmux-clip)"></g>
+<rect x="14" y="14" width="412" height="182" rx="30" fill="#2a3060" filter="url(#proj-clay-dark-nmux-clay)"/>
+<circle class="ball k1" cx="420" cy="22" r="13" fill="#2f8a6e" filter="url(#proj-clay-dark-nmux-clayS)"/><circle class="ball k2" cx="22" cy="190" r="9" fill="#c47d3a" filter="url(#proj-clay-dark-nmux-clayS)"/>
+<text class="rise" x="34" y="52" font-size="20" font-weight="700" fill="#f4f5ff">Nmux</text>
+
+<text class="rise d2" x="34" y="82" font-size="13" fill="#b9bfe8">A persistent desktop home for Claude Code. Sessions live in</text><text class="rise d2" x="34" y="100" font-size="13" fill="#b9bfe8">real terminals that Nmux owns, so closing VS Code or the</text><text class="rise d2" x="34" y="118" font-size="13" fill="#b9bfe8">window never kills them — reopen to the same screen,…</text>
+<g class="rise d3"><rect class="squish" style="animation-delay:2.5s" x="34" y="140" width="81" height="25" rx="12.5" fill="#3d4aa3" filter="url(#proj-clay-dark-nmux-clayS)"/>
+      
+      <text x="45" y="154" font-size="11" font-weight="600" fill="#f4f5ff">TypeScript</text></g><g class="rise d4"><rect class="squish" style="animation-delay:3s" x="123" y="140" width="68" height="25" rx="12.5" fill="#8a3d6b" filter="url(#proj-clay-dark-nmux-clayS)"/>
+      
+      <text x="134" y="154" font-size="11" font-weight="600" fill="#f4f5ff">Electron</text></g><g class="rise d5"><rect class="squish" style="animation-delay:0s" x="199" y="140" width="53" height="25" rx="12.5" fill="#2f7560" filter="url(#proj-clay-dark-nmux-clayS)"/>
+      
+      <text x="210" y="154" font-size="11" font-weight="600" fill="#f4f5ff">React</text></g><g class="rise d6"><rect class="squish" style="animation-delay:0.5s" x="260" y="140" width="67" height="25" rx="12.5" fill="#8f6a32" filter="url(#proj-clay-dark-nmux-clayS)"/>
+      
+      <text x="271" y="154" font-size="11" font-weight="600" fill="#f4f5ff">xterm.js</text></g>
+<circle cx="39" cy="181" r="5" fill="#3178c6"/><text x="46" y="185" font-size="12" fill="#b9bfe8">TypeScript</text>
+<text class="rise d4" x="406" y="185" font-size="12" text-anchor="end" fill="#8288bf">★ 0   ·   updated 12d ago</text></svg>

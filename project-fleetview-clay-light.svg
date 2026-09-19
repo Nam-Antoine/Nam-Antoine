@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="440" height="210" viewBox="0 0 440 210" role="img">
+
+<defs>
+  <linearGradient id="proj-clay-light-fleetview-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9edff"/><stop offset="1" stop-color="#fbeefc"/></linearGradient>
+  <filter id="proj-clay-light-fleetview-clay" x="-40%" y="-40%" width="180%" height="190%" color-interpolation-filters="sRGB">
+    <feComponentTransfer in="SourceAlpha" result="inv"><feFuncA type="table" tableValues="1 0"/></feComponentTransfer>
+    <feGaussianBlur in="inv" stdDeviation="7" result="b1"/><feOffset in="b1" dx="-6" dy="-6" result="o1"/>
+    <feFlood flood-color="#2a3577" flood-opacity="0.22" result="c1"/><feComposite in="c1" in2="o1" operator="in" result="s1"/><feComposite in="s1" in2="SourceAlpha" operator="in" result="innerDark"/>
+    <feGaussianBlur in="inv" stdDeviation="7" result="b2"/><feOffset in="b2" dx="6" dy="6" result="o2"/>
+    <feFlood flood-color="#ffffff" flood-opacity="0.95" result="c2"/><feComposite in="c2" in2="o2" operator="in" result="s2"/><feComposite in="s2" in2="SourceAlpha" operator="in" result="innerLight"/>
+    <feDropShadow in="SourceGraphic" dx="10" dy="12" stdDeviation="11" flood-color="#6d7cff" flood-opacity="0.28" result="outer"/>
+    <feMerge><feMergeNode in="outer"/><feMergeNode in="innerLight"/><feMergeNode in="innerDark"/></feMerge>
+  </filter>
+  <filter id="proj-clay-light-fleetview-clayS" x="-40%" y="-40%" width="180%" height="190%" color-interpolation-filters="sRGB">
+    <feComponentTransfer in="SourceAlpha" result="inv"><feFuncA type="table" tableValues="1 0"/></feComponentTransfer>
+    <feGaussianBlur in="inv" stdDeviation="3.15" result="b1"/><feOffset in="b1" dx="-2.7" dy="-2.7" result="o1"/>
+    <feFlood flood-color="#2a3577" flood-opacity="0.22" result="c1"/><feComposite in="c1" in2="o1" operator="in" result="s1"/><feComposite in="s1" in2="SourceAlpha" operator="in" result="innerDark"/>
+    <feGaussianBlur in="inv" stdDeviation="3.15" result="b2"/><feOffset in="b2" dx="2.7" dy="2.7" result="o2"/>
+    <feFlood flood-color="#ffffff" flood-opacity="0.95" result="c2"/><feComposite in="c2" in2="o2" operator="in" result="s2"/><feComposite in="s2" in2="SourceAlpha" operator="in" result="innerLight"/>
+    <feDropShadow in="SourceGraphic" dx="4.5" dy="5.4" stdDeviation="4.95" flood-color="#6d7cff" flood-opacity="0.28" result="outer"/>
+    <feMerge><feMergeNode in="outer"/><feMergeNode in="innerLight"/><feMergeNode in="innerDark"/></feMerge>
+  </filter>
+  <clipPath id="proj-clay-light-fleetview-clip"><rect width="440" height="210" rx="28"/></clipPath>
+</defs>
+<style>
+  @keyframes proj-clay-light-fleetview-float0 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(18px,-22px) rotate(8deg)} }
+  @keyframes proj-clay-light-fleetview-float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-24px,16px)} }
+  @keyframes proj-clay-light-fleetview-float2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(12px,20px) scale(1.08)} }
+  @keyframes proj-clay-light-fleetview-float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-14px,-18px)} }
+  .k0{animation:proj-clay-light-fleetview-float0 9s ease-in-out infinite} .k1{animation:proj-clay-light-fleetview-float1 11s ease-in-out infinite}
+  .k2{animation:proj-clay-light-fleetview-float2 13s ease-in-out infinite} .k3{animation:proj-clay-light-fleetview-float3 10s ease-in-out infinite}
+  @keyframes proj-clay-light-fleetview-squish { 0%,100%{transform:scale(1,1)} 50%{transform:scale(1.03,0.97)} }
+  .squish { transform-box: fill-box; transform-origin: center; animation:proj-clay-light-fleetview-squish 4s ease-in-out infinite; }
+  
+  @keyframes proj-clay-light-fleetview-rise { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+  .rise { animation: proj-clay-light-fleetview-rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .d1{animation-delay:.1s} .d2{animation-delay:.25s} .d3{animation-delay:.4s} .d4{animation-delay:.55s} .d5{animation-delay:.7s} .d6{animation-delay:.85s}
+  text { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; }
+</style>
+<rect width="440" height="210" rx="28" fill="url(#proj-clay-light-fleetview-bg)"/>
+<g clip-path="url(#proj-clay-light-fleetview-clip)"></g>
+<rect x="14" y="14" width="412" height="182" rx="30" fill="#f5f7ff" filter="url(#proj-clay-light-fleetview-clay)"/>
+<circle class="ball k1" cx="420" cy="22" r="13" fill="#a6ecd2" filter="url(#proj-clay-light-fleetview-clayS)"/><circle class="ball k2" cx="22" cy="190" r="9" fill="#ffd59e" filter="url(#proj-clay-light-fleetview-clayS)"/>
+<text class="rise" x="34" y="52" font-size="20" font-weight="700" fill="#1e2358">FleetView</text>
+<text class="rise d1" x="138.4" y="51" font-size="11" fill="#8a90bb">final-year project · private until submission</text>
+<text class="rise d2" x="34" y="82" font-size="13" fill="#5b628f">A read-only dashboard over many Kubernetes clusters that puts</text><text class="rise d2" x="34" y="100" font-size="13" fill="#5b628f">cost/waste, configuration drift and fleet health on one screen</text><text class="rise d2" x="34" y="118" font-size="13" fill="#5b628f">— with reviewable recommendations that come with the…</text>
+<g class="rise d3"><rect class="squish" style="animation-delay:2.5s" x="34" y="140" width="59" height="25" rx="12.5" fill="#c5f1e2" filter="url(#proj-clay-light-fleetview-clayS)"/>
+      
+      <text x="45" y="154" font-size="11" font-weight="600" fill="#1e2358">Python</text></g><g class="rise d4"><rect class="squish" style="animation-delay:3s" x="101" y="140" width="83" height="25" rx="12.5" fill="#ffe3bd" filter="url(#proj-clay-light-fleetview-clayS)"/>
+      
+      <text x="112" y="154" font-size="11" font-weight="600" fill="#1e2358">Kubernetes</text></g><g class="rise d5"><rect class="squish" style="animation-delay:0s" x="192" y="140" width="68" height="25" rx="12.5" fill="#e2d3ff" filter="url(#proj-clay-light-fleetview-clayS)"/>
+      
+      <text x="203" y="154" font-size="11" font-weight="600" fill="#1e2358">Chart.js</text></g>
+<circle cx="39" cy="181" r="5" fill="#3572A5"/><text x="46" y="185" font-size="12" fill="#5b628f">Python</text>
+<text class="rise d4" x="406" y="185" font-size="12" text-anchor="end" fill="#8a90bb">in progress</text></svg>
