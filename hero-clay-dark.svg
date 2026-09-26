@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="300" viewBox="0 0 900 300" role="img">
+
+<defs>
+  <linearGradient id="hero-clay-dark-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#161a36"/><stop offset="1" stop-color="#241b44"/></linearGradient>
+  <filter id="hero-clay-dark-clay" x="-40%" y="-40%" width="180%" height="190%" color-interpolation-filters="sRGB">
+    <feComponentTransfer in="SourceAlpha" result="inv"><feFuncA type="table" tableValues="1 0"/></feComponentTransfer>
+    <feGaussianBlur in="inv" stdDeviation="7" result="b1"/><feOffset in="b1" dx="-6" dy="-6" result="o1"/>
+    <feFlood flood-color="#0a0d2b" flood-opacity="0.55" result="c1"/><feComposite in="c1" in2="o1" operator="in" result="s1"/><feComposite in="s1" in2="SourceAlpha" operator="in" result="innerDark"/>
+    <feGaussianBlur in="inv" stdDeviation="7" result="b2"/><feOffset in="b2" dx="6" dy="6" result="o2"/>
+    <feFlood flood-color="#ffffff" flood-opacity="0.22" result="c2"/><feComposite in="c2" in2="o2" operator="in" result="s2"/><feComposite in="s2" in2="SourceAlpha" operator="in" result="innerLight"/>
+    <feDropShadow in="SourceGraphic" dx="10" dy="12" stdDeviation="11" flood-color="#05061a" flood-opacity="0.55" result="outer"/>
+    <feMerge><feMergeNode in="outer"/><feMergeNode in="innerLight"/><feMergeNode in="innerDark"/></feMerge>
+  </filter>
+  <filter id="hero-clay-dark-clayS" x="-40%" y="-40%" width="180%" height="190%" color-interpolation-filters="sRGB">
+    <feComponentTransfer in="SourceAlpha" result="inv"><feFuncA type="table" tableValues="1 0"/></feComponentTransfer>
+    <feGaussianBlur in="inv" stdDeviation="3.15" result="b1"/><feOffset in="b1" dx="-2.7" dy="-2.7" result="o1"/>
+    <feFlood flood-color="#0a0d2b" flood-opacity="0.55" result="c1"/><feComposite in="c1" in2="o1" operator="in" result="s1"/><feComposite in="s1" in2="SourceAlpha" operator="in" result="innerDark"/>
+    <feGaussianBlur in="inv" stdDeviation="3.15" result="b2"/><feOffset in="b2" dx="2.7" dy="2.7" result="o2"/>
+    <feFlood flood-color="#ffffff" flood-opacity="0.22" result="c2"/><feComposite in="c2" in2="o2" operator="in" result="s2"/><feComposite in="s2" in2="SourceAlpha" operator="in" result="innerLight"/>
+    <feDropShadow in="SourceGraphic" dx="4.5" dy="5.4" stdDeviation="4.95" flood-color="#05061a" flood-opacity="0.55" result="outer"/>
+    <feMerge><feMergeNode in="outer"/><feMergeNode in="innerLight"/><feMergeNode in="innerDark"/></feMerge>
+  </filter>
+  <clipPath id="hero-clay-dark-clip"><rect width="900" height="300" rx="28"/></clipPath>
+</defs>
+<style>
+  @keyframes hero-clay-dark-float0 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(18px,-22px) rotate(8deg)} }
+  @keyframes hero-clay-dark-float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-24px,16px)} }
+  @keyframes hero-clay-dark-float2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(12px,20px) scale(1.08)} }
+  @keyframes hero-clay-dark-float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-14px,-18px)} }
+  .k0{animation:hero-clay-dark-float0 9s ease-in-out infinite} .k1{animation:hero-clay-dark-float1 11s ease-in-out infinite}
+  .k2{animation:hero-clay-dark-float2 13s ease-in-out infinite} .k3{animation:hero-clay-dark-float3 10s ease-in-out infinite}
+  @keyframes hero-clay-dark-squish { 0%,100%{transform:scale(1,1)} 50%{transform:scale(1.03,0.97)} }
+  .squish { transform-box: fill-box; transform-origin: center; animation:hero-clay-dark-squish 4s ease-in-out infinite; }
+  
+  @keyframes hero-clay-dark-rise { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+  .rise { animation: hero-clay-dark-rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .d1{animation-delay:.1s} .d2{animation-delay:.25s} .d3{animation-delay:.4s} .d4{animation-delay:.55s} .d5{animation-delay:.7s} .d6{animation-delay:.85s}
+  text { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; }
+</style>
+<rect width="900" height="300" rx="28" fill="url(#hero-clay-dark-bg)"/>
+<g clip-path="url(#hero-clay-dark-clip)"></g>
+<style>
+    @keyframes hero-clay-dark-cycle { 0%,4%{opacity:0;transform:translateY(8px)} 8%,21%{opacity:1;transform:translateY(0)} 25%,100%{opacity:0;transform:translateY(-8px)} }
+    .tl { opacity:0; animation:hero-clay-dark-cycle 12.8s ease-in-out infinite; }
+    .tl0{animation-delay:0s} .tl1{animation-delay:3.2s} .tl2{animation-delay:6.4s} .tl3{animation-delay:9.600000000000001s}
+    @keyframes hero-clay-dark-pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
+    .ring { transform-origin: 760px 150px; animation:hero-clay-dark-pulse 5s ease-in-out infinite; }
+    @keyframes hero-clay-dark-spin { to{transform:rotate(360deg)} }
+    .orbit { transform-origin: 760px 150px; animation:hero-clay-dark-spin 18s linear infinite; }
+  </style>
+<rect x="24" y="24" width="852" height="252" rx="34" fill="#2a3060" filter="url(#hero-clay-dark-clay)"/>
+<circle class="ball k1" cx="866" cy="40" r="22" fill="#2f8a6e" filter="url(#hero-clay-dark-clayS)"/><circle class="ball k2" cx="44" cy="268" r="16" fill="#c47d3a" filter="url(#hero-clay-dark-clayS)"/><circle class="ball k3" cx="640" cy="262" r="11" fill="#6b46b8" filter="url(#hero-clay-dark-clayS)"/>
+<text class="rise" x="52" y="84" font-size="15" letter-spacing="3" fill="#8288bf">HI THERE, I'M</text>
+<text class="rise d1" x="52" y="126" font-size="42" font-weight="700" fill="#f4f5ff">Nam-Antoine</text>
+<text class="tl tl0" x="52" y="156" font-size="20" fill="#b9bfe8">I build the tools I wish I had.</text><text class="tl tl1" x="52" y="156" font-size="20" fill="#b9bfe8">Then I ship web apps end to end.</text><text class="tl tl2" x="52" y="156" font-size="20" fill="#b9bfe8">Next.js · NestJS · Electron · Tauri</text><text class="tl tl3" x="52" y="156" font-size="20" fill="#b9bfe8">Final-year ICT student at USTH, Hanoi</text>
+<g class="rise d3"><rect class="squish" style="animation-delay:0.5s" x="52" y="212" width="111" height="27" rx="13.5" fill="#3d4aa3" filter="url(#hero-clay-dark-clayS)"/>
+      <circle cx="65" cy="225.5" r="4" fill="#8ccbff"/>
+      <text x="77" y="228" font-size="13" font-weight="600" fill="#f4f5ff">ICT @ USTH</text></g><g class="rise d4"><rect class="squish" style="animation-delay:1s" x="173" y="212" width="126" height="27" rx="13.5" fill="#8a3d6b" filter="url(#hero-clay-dark-clayS)"/>
+      <circle cx="186" cy="225.5" r="4" fill="#34d399"/>
+      <text x="198" y="228" font-size="13" font-weight="600" fill="#f4f5ff">Hanoi · UTC+7</text></g><g class="rise d5"><rect class="squish" style="animation-delay:1.5s" x="309" y="212" width="123" height="27" rx="13.5" fill="#2f7560" filter="url(#hero-clay-dark-clayS)"/>
+      <circle cx="322" cy="225.5" r="4" fill="#fbbf24"/>
+      <text x="334" y="228" font-size="13" font-weight="600" fill="#f4f5ff">8 public repos</text></g><g class="rise d6"><rect class="squish" style="animation-delay:2s" x="442" y="212" width="105" height="27" rx="13.5" fill="#8f6a32" filter="url(#hero-clay-dark-clayS)"/>
+      <circle cx="455" cy="225.5" r="4" fill="#f472b6"/>
+      <text x="467" y="228" font-size="13" font-weight="600" fill="#f4f5ff">0 followers</text></g>
+<defs><clipPath id="hero-clay-dark-av"><circle cx="760" cy="150" r="72"/></clipPath>
+<linearGradient id="hero-clay-dark-orbit" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8f9cff"/><stop offset="1" stop-color="#8f9cff" stop-opacity="0"/></linearGradient></defs>
+<g class="ring"><circle cx="760" cy="150" r="88" fill="#2a3060" filter="url(#hero-clay-dark-clay)"/></g>
+<image class="rise d2" href="data:image/png;base64,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" x="688" y="78" width="144" height="144" clip-path="url(#hero-clay-dark-av)"/>
+<circle cx="760" cy="150" r="72" fill="none" stroke="#ffffff" stroke-opacity="0.6"/></svg>
