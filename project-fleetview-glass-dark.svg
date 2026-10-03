@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="440" height="210" viewBox="0 0 440 210" role="img">
+
+<defs>
+  <linearGradient id="proj-glass-dark-fleetview-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#070c18"/><stop offset="1" stop-color="#0d1630"/></linearGradient>
+  <linearGradient id="proj-glass-dark-fleetview-edge" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="rgba(255,255,255,0.55)"/><stop offset="0.45" stop-color="rgba(255,255,255,0.08)"/><stop offset="1" stop-color="rgba(255,255,255,0.55)" stop-opacity="0.6"/></linearGradient>
+  <linearGradient id="proj-glass-dark-fleetview-sheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="rgba(255,255,255,0.22)" stop-opacity="0"/><stop offset="0.5" stop-color="rgba(255,255,255,0.22)"/><stop offset="1" stop-color="rgba(255,255,255,0.22)" stop-opacity="0"/></linearGradient>
+  <linearGradient id="proj-glass-dark-fleetview-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <filter id="proj-glass-dark-fleetview-blur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="46"/></filter>
+  <filter id="proj-glass-dark-fleetview-shadow" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#020617" flood-opacity="0.45"/></filter>
+  <clipPath id="proj-glass-dark-fleetview-clip"><rect width="440" height="210" rx="24"/></clipPath>
+</defs>
+<style>
+  .blob { filter: url(#proj-glass-dark-fleetview-blur); opacity: 0.85; mix-blend-mode: screen; }
+  @keyframes proj-glass-dark-fleetview-drift0 { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(70px,-40px) scale(1.15)} 100%{transform:translate(0,0) scale(1)} }
+  @keyframes proj-glass-dark-fleetview-drift1 { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(-90px,30px) scale(0.9)} 100%{transform:translate(0,0) scale(1)} }
+  @keyframes proj-glass-dark-fleetview-drift2 { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(40px,60px) scale(1.2)} 100%{transform:translate(0,0) scale(1)} }
+  @keyframes proj-glass-dark-fleetview-drift3 { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(-50px,-60px) scale(1.05)} 100%{transform:translate(0,0) scale(1)} }
+  .b0{animation:proj-glass-dark-fleetview-drift0 14s ease-in-out infinite} .b1{animation:proj-glass-dark-fleetview-drift1 17s ease-in-out infinite}
+  .b2{animation:proj-glass-dark-fleetview-drift2 19s ease-in-out infinite} .b3{animation:proj-glass-dark-fleetview-drift3 15s ease-in-out infinite}
+  @keyframes proj-glass-dark-fleetview-sweep { 0%{transform:translateX(-440px) skewX(-18deg)} 35%,100%{transform:translateX(528px) skewX(-18deg)} }
+  .sheen { animation: proj-glass-dark-fleetview-sweep 7s cubic-bezier(.4,0,.2,1) infinite; }
+  
+  @keyframes proj-glass-dark-fleetview-rise { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+  .rise { animation: proj-glass-dark-fleetview-rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .d1{animation-delay:.1s} .d2{animation-delay:.25s} .d3{animation-delay:.4s} .d4{animation-delay:.55s} .d5{animation-delay:.7s} .d6{animation-delay:.85s}
+  text { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; }
+</style>
+<rect width="440" height="210" rx="24" fill="url(#proj-glass-dark-fleetview-bg)"/>
+<g clip-path="url(#proj-glass-dark-fleetview-clip)"><circle class="blob b0" cx="270" cy="40" r="130" fill="#1155BC" /><circle class="blob b1" cx="200" cy="200" r="150" fill="#22d3ee" /><circle class="blob b2" cx="220" cy="110" r="90" fill="#7c3aed" /></g>
+
+<g filter="url(#proj-glass-dark-fleetview-shadow)">
+  <rect x="14" y="14" width="412" height="182" rx="22" fill="rgba(255,255,255,0.065)" stroke="url(#proj-glass-dark-fleetview-edge)" stroke-width="1.2"/>
+</g>
+<rect x="15" y="15" width="410" height="28" rx="21" fill="url(#proj-glass-dark-fleetview-top)" opacity="0.5"/>
+<clipPath id="proj-glass-dark-fleetview-p14-14"><rect x="14" y="14" width="412" height="182" rx="22"/></clipPath>
+<g clip-path="url(#proj-glass-dark-fleetview-p14-14)"><rect class="sheen" x="14" y="-6" width="90" height="222" fill="url(#proj-glass-dark-fleetview-sheen)"/></g>
+
+<text class="rise" x="34" y="52" font-size="20" font-weight="700" fill="#f3f6fb">FleetView</text>
+<text class="rise d1" x="138.4" y="51" font-size="11" fill="rgba(243,246,251,0.4)">final-year project · private until submission</text>
+<text class="rise d2" x="34" y="82" font-size="13" fill="rgba(243,246,251,0.66)">A read-only dashboard over many Kubernetes clusters that puts</text><text class="rise d2" x="34" y="100" font-size="13" fill="rgba(243,246,251,0.66)">cost/waste, configuration drift and fleet health on one screen</text><text class="rise d2" x="34" y="118" font-size="13" fill="rgba(243,246,251,0.66)">— with reviewable recommendations that come with the…</text>
+<g class="rise d3"><rect x="34" y="140" width="59" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="45" y="154" font-size="11" fill="#f3f6fb">Python</text></g><g class="rise d4"><rect x="101" y="140" width="83" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="112" y="154" font-size="11" fill="#f3f6fb">Kubernetes</text></g><g class="rise d5"><rect x="192" y="140" width="68" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="203" y="154" font-size="11" fill="#f3f6fb">Chart.js</text></g>
+<circle cx="39" cy="181" r="5" fill="#3572A5"/><text x="46" y="185" font-size="12" fill="rgba(243,246,251,0.66)">Python</text>
+<text class="rise d4" x="406" y="185" font-size="12" text-anchor="end" fill="rgba(243,246,251,0.4)">in progress</text></svg>
