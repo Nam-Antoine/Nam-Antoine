@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="300" viewBox="0 0 900 300" role="img">
+
+<defs>
+  <linearGradient id="hero-glass-light-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaf1fc"/><stop offset="1" stop-color="#f7f9ff"/></linearGradient>
+  <linearGradient id="hero-glass-light-edge" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="rgba(255,255,255,1)"/><stop offset="0.45" stop-color="rgba(17,85,188,0.14)"/><stop offset="1" stop-color="rgba(255,255,255,1)" stop-opacity="0.6"/></linearGradient>
+  <linearGradient id="hero-glass-light-sheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="rgba(255,255,255,0.7)" stop-opacity="0"/><stop offset="0.5" stop-color="rgba(255,255,255,0.7)"/><stop offset="1" stop-color="rgba(255,255,255,0.7)" stop-opacity="0"/></linearGradient>
+  <linearGradient id="hero-glass-light-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <filter id="hero-glass-light-blur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="46"/></filter>
+  <filter id="hero-glass-light-shadow" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#020617" flood-opacity="0.18"/></filter>
+  <clipPath id="hero-glass-light-clip"><rect width="900" height="300" rx="24"/></clipPath>
+</defs>
+<style>
+  .blob { filter: url(#hero-glass-light-blur); opacity: 0.45; mix-blend-mode: screen; }
+  @keyframes hero-glass-light-drift0 { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(70px,-40px) scale(1.15)} 100%{transform:translate(0,0) scale(1)} }
+  @keyframes hero-glass-light-drift1 { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(-90px,30px) scale(0.9)} 100%{transform:translate(0,0) scale(1)} }
+  @keyframes hero-glass-light-drift2 { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(40px,60px) scale(1.2)} 100%{transform:translate(0,0) scale(1)} }
+  @keyframes hero-glass-light-drift3 { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(-50px,-60px) scale(1.05)} 100%{transform:translate(0,0) scale(1)} }
+  .b0{animation:hero-glass-light-drift0 14s ease-in-out infinite} .b1{animation:hero-glass-light-drift1 17s ease-in-out infinite}
+  .b2{animation:hero-glass-light-drift2 19s ease-in-out infinite} .b3{animation:hero-glass-light-drift3 15s ease-in-out infinite}
+  @keyframes hero-glass-light-sweep { 0%{transform:translateX(-900px) skewX(-18deg)} 35%,100%{transform:translateX(1080px) skewX(-18deg)} }
+  .sheen { animation: hero-glass-light-sweep 7s cubic-bezier(.4,0,.2,1) infinite; }
+  
+  @keyframes hero-glass-light-rise { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+  .rise { animation: hero-glass-light-rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .d1{animation-delay:.1s} .d2{animation-delay:.25s} .d3{animation-delay:.4s} .d4{animation-delay:.55s} .d5{animation-delay:.7s} .d6{animation-delay:.85s}
+  text { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; }
+</style>
+<rect width="900" height="300" rx="24" fill="url(#hero-glass-light-bg)"/>
+<g clip-path="url(#hero-glass-light-clip)"><circle class="blob b0" cx="120" cy="60" r="170" fill="#1155BC" /><circle class="blob b1" cx="560" cy="260" r="200" fill="#38bdf8" /><circle class="blob b2" cx="800" cy="40" r="150" fill="#a78bfa" /><circle class="blob b3" cx="350" cy="180" r="120" fill="#60a5fa" /></g>
+<style>
+    @keyframes hero-glass-light-cycle { 0%,4%{opacity:0;transform:translateY(8px)} 8%,21%{opacity:1;transform:translateY(0)} 25%,100%{opacity:0;transform:translateY(-8px)} }
+    .tl { opacity:0; animation:hero-glass-light-cycle 12.8s ease-in-out infinite; }
+    .tl0{animation-delay:0s} .tl1{animation-delay:3.2s} .tl2{animation-delay:6.4s} .tl3{animation-delay:9.600000000000001s}
+    @keyframes hero-glass-light-pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
+    .ring { transform-origin: 760px 150px; animation:hero-glass-light-pulse 5s ease-in-out infinite; }
+    @keyframes hero-glass-light-spin { to{transform:rotate(360deg)} }
+    .orbit { transform-origin: 760px 150px; animation:hero-glass-light-spin 18s linear infinite; }
+  </style>
+
+<g filter="url(#hero-glass-light-shadow)">
+  <rect x="24" y="24" width="852" height="252" rx="26" fill="rgba(255,255,255,0.55)" stroke="url(#hero-glass-light-edge)" stroke-width="1.2"/>
+</g>
+<rect x="25" y="25" width="850" height="28" rx="25" fill="url(#hero-glass-light-top)" opacity="0.5"/>
+<clipPath id="hero-glass-light-p24-24"><rect x="24" y="24" width="852" height="252" rx="26"/></clipPath>
+<g clip-path="url(#hero-glass-light-p24-24)"><rect class="sheen" x="24" y="4" width="153.35999999999999" height="292" fill="url(#hero-glass-light-sheen)"/></g>
+
+<text class="rise" x="52" y="84" font-size="15" letter-spacing="3" fill="rgba(11,18,32,0.42)">HI THERE, I'M</text>
+<text class="rise d1" x="52" y="126" font-size="42" font-weight="700" fill="#0b1220">Nam-Antoine</text>
+<text class="tl tl0" x="52" y="156" font-size="20" fill="rgba(11,18,32,0.62)">I build the tools I wish I had.</text><text class="tl tl1" x="52" y="156" font-size="20" fill="rgba(11,18,32,0.62)">Then I ship web apps end to end.</text><text class="tl tl2" x="52" y="156" font-size="20" fill="rgba(11,18,32,0.62)">Next.js · NestJS · Electron · Tauri</text><text class="tl tl3" x="52" y="156" font-size="20" fill="rgba(11,18,32,0.62)">Final-year ICT student at USTH, Hanoi</text>
+<g class="rise d3"><rect x="52" y="212" width="111" height="27" rx="13.5" fill="rgba(255,255,255,0.7)" stroke="rgba(17,85,188,0.14)"/>
+      <circle cx="65" cy="225.5" r="4" fill="#8ccbff"/>
+      <text x="77" y="228" font-size="13" fill="#0b1220">ICT @ USTH</text></g><g class="rise d4"><rect x="173" y="212" width="126" height="27" rx="13.5" fill="rgba(255,255,255,0.7)" stroke="rgba(17,85,188,0.14)"/>
+      <circle cx="186" cy="225.5" r="4" fill="#34d399"/>
+      <text x="198" y="228" font-size="13" fill="#0b1220">Hanoi · UTC+7</text></g><g class="rise d5"><rect x="309" y="212" width="132" height="27" rx="13.5" fill="rgba(255,255,255,0.7)" stroke="rgba(17,85,188,0.14)"/>
+      <circle cx="322" cy="225.5" r="4" fill="#fbbf24"/>
+      <text x="334" y="228" font-size="13" fill="#0b1220">10 public repos</text></g><g class="rise d6"><rect x="451" y="212" width="105" height="27" rx="13.5" fill="rgba(255,255,255,0.7)" stroke="rgba(17,85,188,0.14)"/>
+      <circle cx="464" cy="225.5" r="4" fill="#f472b6"/>
+      <text x="476" y="228" font-size="13" fill="#0b1220">0 followers</text></g>
+<defs><clipPath id="hero-glass-light-av"><circle cx="760" cy="150" r="72"/></clipPath>
+<linearGradient id="hero-glass-light-orbit" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1155BC"/><stop offset="1" stop-color="#1155BC" stop-opacity="0"/></linearGradient></defs>
+<g class="ring"><circle cx="760" cy="150" r="88" fill="rgba(255,255,255,0.55)" stroke="url(#hero-glass-light-edge)" stroke-width="1.2"/></g>
+<g class="orbit"><circle cx="760" cy="150" r="88" fill="none" stroke="url(#hero-glass-light-orbit)" stroke-width="2" stroke-dasharray="120 440" stroke-linecap="round"/></g>
+<image class="rise d2" href="data:image/png;base64,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" x="688" y="78" width="144" height="144" clip-path="url(#hero-glass-light-av)"/>
+<circle cx="760" cy="150" r="72" fill="none" stroke="rgba(255,255,255,1)" stroke-opacity="0.6"/></svg>
