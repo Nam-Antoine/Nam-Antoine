@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="196" viewBox="0 0 900 196" role="img">
+
+<defs>
+  <linearGradient id="stack-glass-dark-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#070c18"/><stop offset="1" stop-color="#0d1630"/></linearGradient>
+  <linearGradient id="stack-glass-dark-edge" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="rgba(255,255,255,0.55)"/><stop offset="0.45" stop-color="rgba(255,255,255,0.08)"/><stop offset="1" stop-color="rgba(255,255,255,0.55)" stop-opacity="0.6"/></linearGradient>
+  <linearGradient id="stack-glass-dark-sheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="rgba(255,255,255,0.22)" stop-opacity="0"/><stop offset="0.5" stop-color="rgba(255,255,255,0.22)"/><stop offset="1" stop-color="rgba(255,255,255,0.22)" stop-opacity="0"/></linearGradient>
+  <linearGradient id="stack-glass-dark-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <filter id="stack-glass-dark-blur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="46"/></filter>
+  <filter id="stack-glass-dark-shadow" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#020617" flood-opacity="0.45"/></filter>
+  <clipPath id="stack-glass-dark-clip"><rect width="900" height="196" rx="24"/></clipPath>
+</defs>
+<style>
+  .blob { filter: url(#stack-glass-dark-blur); opacity: 0.85; mix-blend-mode: screen; }
+  @keyframes stack-glass-dark-drift0 { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(70px,-40px) scale(1.15)} 100%{transform:translate(0,0) scale(1)} }
+  @keyframes stack-glass-dark-drift1 { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(-90px,30px) scale(0.9)} 100%{transform:translate(0,0) scale(1)} }
+  @keyframes stack-glass-dark-drift2 { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(40px,60px) scale(1.2)} 100%{transform:translate(0,0) scale(1)} }
+  @keyframes stack-glass-dark-drift3 { 0%{transform:translate(0,0) scale(1)} 50%{transform:translate(-50px,-60px) scale(1.05)} 100%{transform:translate(0,0) scale(1)} }
+  .b0{animation:stack-glass-dark-drift0 14s ease-in-out infinite} .b1{animation:stack-glass-dark-drift1 17s ease-in-out infinite}
+  .b2{animation:stack-glass-dark-drift2 19s ease-in-out infinite} .b3{animation:stack-glass-dark-drift3 15s ease-in-out infinite}
+  @keyframes stack-glass-dark-sweep { 0%{transform:translateX(-900px) skewX(-18deg)} 35%,100%{transform:translateX(1080px) skewX(-18deg)} }
+  .sheen { animation: stack-glass-dark-sweep 7s cubic-bezier(.4,0,.2,1) infinite; }
+  
+  @keyframes stack-glass-dark-rise { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+  .rise { animation: stack-glass-dark-rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .d1{animation-delay:.1s} .d2{animation-delay:.25s} .d3{animation-delay:.4s} .d4{animation-delay:.55s} .d5{animation-delay:.7s} .d6{animation-delay:.85s}
+  text { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; }
+</style>
+<rect width="900" height="196" rx="24" fill="url(#stack-glass-dark-bg)"/>
+<g clip-path="url(#stack-glass-dark-clip)"><circle class="blob b0" cx="100" cy="150" r="150" fill="#1155BC" /><circle class="blob b1" cx="500" cy="0" r="160" fill="#22d3ee" /><circle class="blob b2" cx="850" cy="140" r="140" fill="#7c3aed" /><circle class="blob b3" cx="300" cy="80" r="100" fill="#2563eb" /></g>
+
+<g filter="url(#stack-glass-dark-shadow)">
+  <rect x="16" y="16" width="868" height="164" rx="22" fill="rgba(255,255,255,0.065)" stroke="url(#stack-glass-dark-edge)" stroke-width="1.2"/>
+</g>
+<rect x="17" y="17" width="866" height="28" rx="21" fill="url(#stack-glass-dark-top)" opacity="0.5"/>
+<clipPath id="stack-glass-dark-p16-16"><rect x="16" y="16" width="868" height="164" rx="22"/></clipPath>
+<g clip-path="url(#stack-glass-dark-p16-16)"><rect class="sheen" x="16" y="-4" width="156.23999999999998" height="204" fill="url(#stack-glass-dark-sheen)"/></g>
+
+<text class="rise" x="40" y="54" font-size="11" letter-spacing="2" fill="rgba(243,246,251,0.4)">WEB</text><g class="rise d1"><rect x="150" y="38" width="81" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="161" y="52" font-size="11" fill="#f3f6fb">TypeScript</text></g><g class="rise d2"><rect x="239" y="38" width="62" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="250" y="52" font-size="11" fill="#f3f6fb">Next.js</text></g><g class="rise d3"><rect x="309" y="38" width="53" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="320" y="52" font-size="11" fill="#f3f6fb">React</text></g><g class="rise d4"><rect x="370" y="38" width="62" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="381" y="52" font-size="11" fill="#f3f6fb">NestJS</text></g><g class="rise d5"><rect x="440" y="38" width="56" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="451" y="52" font-size="11" fill="#f3f6fb">Prisma</text></g><g class="rise d6"><rect x="504" y="38" width="87" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="515" y="52" font-size="11" fill="#f3f6fb">PostgreSQL</text></g><g class="rise d1"><rect x="599" y="38" width="63" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="610" y="52" font-size="11" fill="#f3f6fb">Tailwind</text></g><g class="rise d2"><rect x="670" y="38" width="77" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="681" y="52" font-size="11" fill="#f3f6fb">Playwright</text></g><text class="rise" x="40" y="84" font-size="11" letter-spacing="2" fill="rgba(243,246,251,0.4)">DESKTOP</text><g class="rise d3"><rect x="150" y="68" width="68" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="161" y="82" font-size="11" fill="#f3f6fb">Electron</text></g><g class="rise d4"><rect x="226" y="68" width="50" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="237" y="82" font-size="11" fill="#f3f6fb">Tauri</text></g><g class="rise d5"><rect x="284" y="68" width="47" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="295" y="82" font-size="11" fill="#f3f6fb">Rust</text></g><text class="rise" x="40" y="114" font-size="11" letter-spacing="2" fill="rgba(243,246,251,0.4)">DATA &amp; INFRA</text><g class="rise d6"><rect x="150" y="98" width="59" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="161" y="112" font-size="11" fill="#f3f6fb">Python</text></g><g class="rise d1"><rect x="217" y="98" width="65" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="228" y="112" font-size="11" fill="#f3f6fb">Jupyter</text></g><g class="rise d2"><rect x="290" y="98" width="85" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="301" y="112" font-size="11" fill="#f3f6fb">scikit-learn</text></g><g class="rise d3"><rect x="383" y="98" width="59" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="394" y="112" font-size="11" fill="#f3f6fb">Docker</text></g><g class="rise d4"><rect x="450" y="98" width="83" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="461" y="112" font-size="11" fill="#f3f6fb">Kubernetes</text></g><g class="rise d5"><rect x="541" y="98" width="101" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="552" y="112" font-size="11" fill="#f3f6fb">GitHub Actions</text></g><text class="rise" x="40" y="144" font-size="11" letter-spacing="2" fill="rgba(243,246,251,0.4)">WORKFLOW</text><g class="rise d6"><rect x="150" y="128" width="85" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="161" y="142" font-size="11" fill="#f3f6fb">Claude Code</text></g><g class="rise d1"><rect x="243" y="128" width="46" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="254" y="142" font-size="11" fill="#f3f6fb">pnpm</text></g><g class="rise d2"><rect x="297" y="128" width="50" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="308" y="142" font-size="11" fill="#f3f6fb">Figma</text></g><g class="rise d3"><rect x="355" y="128" width="56" height="25" rx="12.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.08)"/>
+      
+      <text x="366" y="142" font-size="11" fill="#f3f6fb">Linear</text></g></svg>
