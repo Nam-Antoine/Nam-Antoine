@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="196" viewBox="0 0 900 196" role="img">
+
+<defs>
+  <linearGradient id="stack-clay-dark-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#161a36"/><stop offset="1" stop-color="#241b44"/></linearGradient>
+  <filter id="stack-clay-dark-clay" x="-40%" y="-40%" width="180%" height="190%" color-interpolation-filters="sRGB">
+    <feComponentTransfer in="SourceAlpha" result="inv"><feFuncA type="table" tableValues="1 0"/></feComponentTransfer>
+    <feGaussianBlur in="inv" stdDeviation="7" result="b1"/><feOffset in="b1" dx="-6" dy="-6" result="o1"/>
+    <feFlood flood-color="#0a0d2b" flood-opacity="0.55" result="c1"/><feComposite in="c1" in2="o1" operator="in" result="s1"/><feComposite in="s1" in2="SourceAlpha" operator="in" result="innerDark"/>
+    <feGaussianBlur in="inv" stdDeviation="7" result="b2"/><feOffset in="b2" dx="6" dy="6" result="o2"/>
+    <feFlood flood-color="#ffffff" flood-opacity="0.22" result="c2"/><feComposite in="c2" in2="o2" operator="in" result="s2"/><feComposite in="s2" in2="SourceAlpha" operator="in" result="innerLight"/>
+    <feDropShadow in="SourceGraphic" dx="10" dy="12" stdDeviation="11" flood-color="#05061a" flood-opacity="0.55" result="outer"/>
+    <feMerge><feMergeNode in="outer"/><feMergeNode in="innerLight"/><feMergeNode in="innerDark"/></feMerge>
+  </filter>
+  <filter id="stack-clay-dark-clayS" x="-40%" y="-40%" width="180%" height="190%" color-interpolation-filters="sRGB">
+    <feComponentTransfer in="SourceAlpha" result="inv"><feFuncA type="table" tableValues="1 0"/></feComponentTransfer>
+    <feGaussianBlur in="inv" stdDeviation="3.15" result="b1"/><feOffset in="b1" dx="-2.7" dy="-2.7" result="o1"/>
+    <feFlood flood-color="#0a0d2b" flood-opacity="0.55" result="c1"/><feComposite in="c1" in2="o1" operator="in" result="s1"/><feComposite in="s1" in2="SourceAlpha" operator="in" result="innerDark"/>
+    <feGaussianBlur in="inv" stdDeviation="3.15" result="b2"/><feOffset in="b2" dx="2.7" dy="2.7" result="o2"/>
+    <feFlood flood-color="#ffffff" flood-opacity="0.22" result="c2"/><feComposite in="c2" in2="o2" operator="in" result="s2"/><feComposite in="s2" in2="SourceAlpha" operator="in" result="innerLight"/>
+    <feDropShadow in="SourceGraphic" dx="4.5" dy="5.4" stdDeviation="4.95" flood-color="#05061a" flood-opacity="0.55" result="outer"/>
+    <feMerge><feMergeNode in="outer"/><feMergeNode in="innerLight"/><feMergeNode in="innerDark"/></feMerge>
+  </filter>
+  <clipPath id="stack-clay-dark-clip"><rect width="900" height="196" rx="28"/></clipPath>
+</defs>
+<style>
+  @keyframes stack-clay-dark-float0 { 0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(18px,-22px) rotate(8deg)} }
+  @keyframes stack-clay-dark-float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-24px,16px)} }
+  @keyframes stack-clay-dark-float2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(12px,20px) scale(1.08)} }
+  @keyframes stack-clay-dark-float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-14px,-18px)} }
+  .k0{animation:stack-clay-dark-float0 9s ease-in-out infinite} .k1{animation:stack-clay-dark-float1 11s ease-in-out infinite}
+  .k2{animation:stack-clay-dark-float2 13s ease-in-out infinite} .k3{animation:stack-clay-dark-float3 10s ease-in-out infinite}
+  @keyframes stack-clay-dark-squish { 0%,100%{transform:scale(1,1)} 50%{transform:scale(1.03,0.97)} }
+  .squish { transform-box: fill-box; transform-origin: center; animation:stack-clay-dark-squish 4s ease-in-out infinite; }
+  
+  @keyframes stack-clay-dark-rise { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+  .rise { animation: stack-clay-dark-rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .d1{animation-delay:.1s} .d2{animation-delay:.25s} .d3{animation-delay:.4s} .d4{animation-delay:.55s} .d5{animation-delay:.7s} .d6{animation-delay:.85s}
+  text { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; }
+</style>
+<rect width="900" height="196" rx="28" fill="url(#stack-clay-dark-bg)"/>
+<g clip-path="url(#stack-clay-dark-clip)"></g>
+<rect x="16" y="16" width="868" height="164" rx="30" fill="#2a3060" filter="url(#stack-clay-dark-clay)"/>
+<circle class="ball k1" cx="872" cy="30" r="18" fill="#2f8a6e" filter="url(#stack-clay-dark-clayS)"/><circle class="ball k2" cx="838" cy="160" r="12" fill="#c47d3a" filter="url(#stack-clay-dark-clayS)"/><circle class="ball k3" cx="28" cy="176" r="10" fill="#6b46b8" filter="url(#stack-clay-dark-clayS)"/>
+<text class="rise" x="40" y="54" font-size="11" letter-spacing="2" fill="#8288bf">WEB</text><g class="rise d1"><rect class="squish" style="animation-delay:2.5s" x="150" y="38" width="81" height="25" rx="12.5" fill="#5c3f9c" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="161" y="52" font-size="11" font-weight="600" fill="#f4f5ff">TypeScript</text></g><g class="rise d2"><rect class="squish" style="animation-delay:3s" x="239" y="38" width="62" height="25" rx="12.5" fill="#3d4aa3" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="250" y="52" font-size="11" font-weight="600" fill="#f4f5ff">Next.js</text></g><g class="rise d3"><rect class="squish" style="animation-delay:0s" x="309" y="38" width="53" height="25" rx="12.5" fill="#8a3d6b" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="320" y="52" font-size="11" font-weight="600" fill="#f4f5ff">React</text></g><g class="rise d4"><rect class="squish" style="animation-delay:0.5s" x="370" y="38" width="62" height="25" rx="12.5" fill="#2f7560" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="381" y="52" font-size="11" font-weight="600" fill="#f4f5ff">NestJS</text></g><g class="rise d5"><rect class="squish" style="animation-delay:1s" x="440" y="38" width="56" height="25" rx="12.5" fill="#8f6a32" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="451" y="52" font-size="11" font-weight="600" fill="#f4f5ff">Prisma</text></g><g class="rise d6"><rect class="squish" style="animation-delay:1.5s" x="504" y="38" width="87" height="25" rx="12.5" fill="#5c3f9c" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="515" y="52" font-size="11" font-weight="600" fill="#f4f5ff">PostgreSQL</text></g><g class="rise d1"><rect class="squish" style="animation-delay:2s" x="599" y="38" width="63" height="25" rx="12.5" fill="#3d4aa3" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="610" y="52" font-size="11" font-weight="600" fill="#f4f5ff">Tailwind</text></g><g class="rise d2"><rect class="squish" style="animation-delay:2.5s" x="670" y="38" width="77" height="25" rx="12.5" fill="#8a3d6b" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="681" y="52" font-size="11" font-weight="600" fill="#f4f5ff">Playwright</text></g><text class="rise" x="40" y="84" font-size="11" letter-spacing="2" fill="#8288bf">DESKTOP</text><g class="rise d3"><rect class="squish" style="animation-delay:3s" x="150" y="68" width="68" height="25" rx="12.5" fill="#2f7560" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="161" y="82" font-size="11" font-weight="600" fill="#f4f5ff">Electron</text></g><g class="rise d4"><rect class="squish" style="animation-delay:0s" x="226" y="68" width="50" height="25" rx="12.5" fill="#8f6a32" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="237" y="82" font-size="11" font-weight="600" fill="#f4f5ff">Tauri</text></g><g class="rise d5"><rect class="squish" style="animation-delay:0.5s" x="284" y="68" width="47" height="25" rx="12.5" fill="#5c3f9c" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="295" y="82" font-size="11" font-weight="600" fill="#f4f5ff">Rust</text></g><text class="rise" x="40" y="114" font-size="11" letter-spacing="2" fill="#8288bf">DATA &amp; INFRA</text><g class="rise d6"><rect class="squish" style="animation-delay:1s" x="150" y="98" width="59" height="25" rx="12.5" fill="#3d4aa3" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="161" y="112" font-size="11" font-weight="600" fill="#f4f5ff">Python</text></g><g class="rise d1"><rect class="squish" style="animation-delay:1.5s" x="217" y="98" width="65" height="25" rx="12.5" fill="#8a3d6b" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="228" y="112" font-size="11" font-weight="600" fill="#f4f5ff">Jupyter</text></g><g class="rise d2"><rect class="squish" style="animation-delay:2s" x="290" y="98" width="85" height="25" rx="12.5" fill="#2f7560" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="301" y="112" font-size="11" font-weight="600" fill="#f4f5ff">scikit-learn</text></g><g class="rise d3"><rect class="squish" style="animation-delay:2.5s" x="383" y="98" width="59" height="25" rx="12.5" fill="#8f6a32" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="394" y="112" font-size="11" font-weight="600" fill="#f4f5ff">Docker</text></g><g class="rise d4"><rect class="squish" style="animation-delay:3s" x="450" y="98" width="83" height="25" rx="12.5" fill="#5c3f9c" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="461" y="112" font-size="11" font-weight="600" fill="#f4f5ff">Kubernetes</text></g><g class="rise d5"><rect class="squish" style="animation-delay:0s" x="541" y="98" width="101" height="25" rx="12.5" fill="#3d4aa3" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="552" y="112" font-size="11" font-weight="600" fill="#f4f5ff">GitHub Actions</text></g><text class="rise" x="40" y="144" font-size="11" letter-spacing="2" fill="#8288bf">WORKFLOW</text><g class="rise d6"><rect class="squish" style="animation-delay:0.5s" x="150" y="128" width="85" height="25" rx="12.5" fill="#8a3d6b" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="161" y="142" font-size="11" font-weight="600" fill="#f4f5ff">Claude Code</text></g><g class="rise d1"><rect class="squish" style="animation-delay:1s" x="243" y="128" width="46" height="25" rx="12.5" fill="#2f7560" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="254" y="142" font-size="11" font-weight="600" fill="#f4f5ff">pnpm</text></g><g class="rise d2"><rect class="squish" style="animation-delay:1.5s" x="297" y="128" width="50" height="25" rx="12.5" fill="#8f6a32" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="308" y="142" font-size="11" font-weight="600" fill="#f4f5ff">Figma</text></g><g class="rise d3"><rect class="squish" style="animation-delay:2s" x="355" y="128" width="56" height="25" rx="12.5" fill="#5c3f9c" filter="url(#stack-clay-dark-clayS)"/>
+      
+      <text x="366" y="142" font-size="11" font-weight="600" fill="#f4f5ff">Linear</text></g></svg>
